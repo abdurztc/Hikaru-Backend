@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,7 +13,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('pages.products.index');
+        $items = product::all();
+        return view('pages.products.index')->with([
+            'items'=> $items
+        ]);
     }
 
     /**
