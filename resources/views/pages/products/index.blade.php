@@ -22,7 +22,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               @forelse ($items as $item)
+                               @forelse ($items ?? '' as $item)
                                <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->name }}</td>
@@ -42,9 +42,9 @@
                                         class="d-inline">
                                         @method('delete')
                                         @csrf
-                                        <buton class="btn btn-danger btn-sm">
+                                        <button class="btn btn-danger btn-sm">
                                             <i class="fa fa-trash"></i>
-                                        </buton>
+                                        </button>
                                     </form>
 
                                 </td>
