@@ -2,6 +2,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductGalleryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,9 @@ Auth::routes(['register' => false]);
 
 Route::get('products/{id}/gallery', [ProductController::class, 'gallery'])->name('products.gallery');
 
+Route::get('transactions/{id}/set-status', [TransactionController::class, 'setStatus'])->name('transactions.status');
 Route::resource('products', ProductController::class);
 Route::resource('product-galleries', ProductGalleryController::class);
+Route::resource('transactions', TransactionController::class);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
